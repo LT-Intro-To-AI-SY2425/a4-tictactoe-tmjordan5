@@ -35,16 +35,23 @@ class TTTBoard:
             return True
         if self.board[2::3]==[player,player,player]:
             return True
-        if self.board["""
+        if [self.board[0],self.board[4],self.board[8]]==[player,player,player]:
+            return True
+        if [self.board[2],self.board[4],self.board[6]]==[player,player,player]:
+            return True
+        return False
+    
+    def game_over(self):
+        if not('*' in self.board):
+            return True
+        if self.has_won("X") or self.has_won("O"):
+            return True
+        return False
+    
+    def clear(self):
+        self.board=['*','*','*','*','*','*','*','*','*']
+
         
-        
-        
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHH
-        
-        
-        
-        
-        """]
 
 
 def play_tic_tac_toe() -> None:
@@ -124,4 +131,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+    play_tic_tac_toe()
